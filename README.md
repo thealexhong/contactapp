@@ -1,5 +1,5 @@
 #Contact JFRAME App
-Stores user's contacts information
+Stores user contacts' information
 
 ````
 javac -d . *.java
