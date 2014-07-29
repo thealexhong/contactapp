@@ -25,7 +25,7 @@ import java.util.ArrayList;
  */
 public class ContactApp extends JPanel implements ActionListener
 {
-    private String first, initial, last, phone; // contact's info
+    private String mFirst, mInitial, mLast, mPhone; // contact's info
     static int sCurrentRecordNum = 0; // keeping track of current record
     static int sTotal = 0; // total record
     final int MAX_RECORD = 50; // maximum num of records that could be created
@@ -122,17 +122,17 @@ public class ContactApp extends JPanel implements ActionListener
         {
 	        // Saves Records automatically
             // Gets the text in the text fields
-	        first = firstField.getText ().trim ();
-    	    initial = initialField.getText ().trim ();
-	        last = lastField.getText ().trim ();
-            phone = phoneField.getText ().trim ();
+	        mFirst = firstField.getText ().trim ();
+    	    mInitial = initialField.getText ().trim ();
+	        mLast = lastField.getText ().trim ();
+            mPhone = phoneField.getText ().trim ();
 
 	    // User must enter at least one field to create a record
-	    if (!(first.equals ("") && initial.equals ("") &&
-              last.equals ("") && phone.equals ("")))
+	    if (!(mFirst.equals ("") && mInitial.equals ("") &&
+              mLast.equals ("") && mPhone.equals ("")))
 	    {
 		    // check if the phone number is valid before the record stores it
-            if (PersonRecord.checkPhone (phone) == false)
+            if (PersonRecord.checkPhone (mPhone) == false)
             {
                 // Error Message
                 JOptionPane.showMessageDialog (this, 
@@ -144,7 +144,7 @@ public class ContactApp extends JPanel implements ActionListener
             if (sCurrentRecordNum == person.size ())
             {
 		        // create a new PersonRecord
-                person.add (new PersonRecord (first, initial, last, phone));
+                person.add (new PersonRecord (mFirst, mInitial, mLast, mPhone));
                 // Calculate the sTotal created records
                 sTotal++;
             }
@@ -155,10 +155,10 @@ public class ContactApp extends JPanel implements ActionListener
                  * a new record
                  */
 		        // overwrite changes to the record
-		        ((PersonRecord)person.get(sCurrentRecordNum)).setFirst(first);
-		        ((PersonRecord)person.get(sCurrentRecordNum)).setLast(last);
-		        ((PersonRecord)person.get(sCurrentRecordNum)).setInitial(initial);
-		        ((PersonRecord)person.get(sCurrentRecordNum)).setPhone(phone);
+		        ((PersonRecord)person.get(sCurrentRecordNum)).setFirst(mFirst);
+		        ((PersonRecord)person.get(sCurrentRecordNum)).setLast(mLast);
+		        ((PersonRecord)person.get(sCurrentRecordNum)).setInitial(mInitial);
+		        ((PersonRecord)person.get(sCurrentRecordNum)).setPhone(mPhone);
 		    }
 		
             // display inputs back to the user properly formatted
